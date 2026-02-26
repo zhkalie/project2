@@ -1,21 +1,32 @@
 
-int x = mouseX
-int y = mouseY
+//int x = mouseX
+//int y = mouseY
+
+int ba;
 
 int mc = #B40000;
 int ac = #C64B40;
 
+
 void setup() {
-  size(500,400);
-  translate(x, y);
+  size(1000,800,P2D);
+  ba = 0;
 }
 
 void draw() {
-  
+  background(59);
+
+  bloomaw(mouseX, mouseY, ba);
+  ba = ba + 1;
 }
 
 
-void bloomaw() {
+void bloomaw(int x, int y, int angle) {
+  pushMatrix();
+  translate(x,y);
+  
+  rotate(radians(angle));
+  
   //legs behind
   fill(0);
   noStroke();
@@ -88,4 +99,6 @@ void bloomaw() {
   circle( 50, -15, 10);
   circle(-50, -15, 10);
   circle(0, -55, 10);
+  
+  popMatrix();
 }
